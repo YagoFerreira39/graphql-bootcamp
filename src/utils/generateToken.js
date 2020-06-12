@@ -5,7 +5,7 @@ const generateToken = (userId) => {
     throw new Error("User not found.");
   }
 
-  const validToken = jwt.sign({ userId }, "secretpassword", {
+  const validToken = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "7 days",
   });
 
